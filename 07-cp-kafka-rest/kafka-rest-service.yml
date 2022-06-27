@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kafka-rest-proxy
+  namespace: kafka-ca1
+spec:
+  type: NodePort
+  selector:
+    app: kafka-rest-proxy
+  ports:
+  - port: 8082
+    protocol: TCP
+    targetPort: 8082

@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ubuntu
+  name: ubuntu
+  namespace: kafka-ca1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubuntu
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      containers:
+      - image: ubuntu:latest
+        command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+        imagePullPolicy: IfNotPresent
+        name: ubuntu
